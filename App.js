@@ -4,35 +4,24 @@ import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
-
-function NotificationsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-    </View>
-  );
-}
+import MainScreen from './screens/mainScreen';
+import ShareScreen from './screens/shareScreen';
+import EvaluationScreen from './screens/evaluationScreen';
+import AskScreen from './screens/askScreen';
+import NoticeScreen from './screens/noticeScreen';
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
+	return (
+		<NavigationContainer>
+			<Drawer.Navigator initialRouteName="Home" screenOptions={{ headerShown: true }}>
+				<Drawer.Screen name="main" component={MainScreen} options={{}} />
+				<Drawer.Screen name="share" component={ShareScreen} />
+				<Drawer.Screen name="evaluation" component={EvaluationScreen} />
+				<Drawer.Screen name="ask" component={AskScreen} />
+				<Drawer.Screen name="notice" component={NoticeScreen} />
+			</Drawer.Navigator>
+		</NavigationContainer>
+	);
 }
