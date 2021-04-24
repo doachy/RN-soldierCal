@@ -15,8 +15,25 @@ const Drawer = createDrawerNavigator();
 export default function App() {
 	return (
 		<NavigationContainer>
-			<Drawer.Navigator initialRouteName="Home" screenOptions={{ headerShown: true }}>
-				<Drawer.Screen name="main" component={MainScreen} options={{}} />
+			<Drawer.Navigator
+				initialRouteName="main"
+				screenOptions={{
+					headerShown: true,
+					headerRight: () => (
+						<Button
+							onPress={() => alert('This is a button!')}
+							title="Info"
+						/>
+					),
+				}}
+			>
+				<Drawer.Screen
+					name="main"
+					component={MainScreen}
+					options={{
+						headerTitle: 'Sodier Calculation',
+					}}
+				/>
 				<Drawer.Screen name="share" component={ShareScreen} />
 				<Drawer.Screen name="evaluation" component={EvaluationScreen} />
 				<Drawer.Screen name="ask" component={AskScreen} />
