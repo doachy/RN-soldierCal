@@ -20,10 +20,7 @@ export default function App() {
 				screenOptions={{
 					headerShown: true,
 					headerRight: () => (
-						<Button
-							onPress={() => alert('This is a button!')}
-							title="Info"
-						/>
+						<Button onPress={() => alert('This is a button!')} title="Info" />
 					),
 				}}
 			>
