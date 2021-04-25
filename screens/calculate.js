@@ -26,9 +26,9 @@ class Calculate extends React.Component {
 	countDayFN = (toDate) => {
 		// 매개변수로는 목표날짜를 받아와줍니다.
 		const now = new Date(); // 현재의 날짜 객체를 생성해줍니다.
-		const nownow = Math.abs(now.getTime());
-		const now2 = Math.abs(toDate.getTime());
-		let amount = Math.abs(toDate.getTime() - now.getTime()); // 목표날짜와 현재의 날짜의 gap 을 계산해줍니다.
+		const nownow = now.getTime();
+		const now2 = toDate.getTime();
+		let amount = toDate.getTime() - now.getTime(); // 목표날짜와 현재의 날짜의 gap 을 계산해줍니다.
 		// 그러면 날짜 객체의 모양으로 차이가 나오는게 아니라 일반 실수형의 값이 반환됩니다.
 
 		// time is already past
@@ -40,7 +40,7 @@ class Calculate extends React.Component {
 				minutes: '0',
 				seconds: '0',
 			});
-			// 일, 시, 분, 초를 모두 0으로 셋팅해주고,
+			// 일, 시, 분, 초를 모두 0으로 셋팅해주고
 			clearInterval(this.intervalId);
 			// intervalId 를 삭제시켜줌으로써 더이상의 함수 호출을 멈춰줍니다.
 		} else {

@@ -7,6 +7,7 @@ export default function MainScreen({ navigation }) {
 		<View style={styles.container}>
 			<View style={styles.topContainer}>
 				<Text>상병 김륜기</Text>
+				<Text>         </Text>
 				<Calculate/>
 			</View>
 			<View style={styles.bottomContainer}>
