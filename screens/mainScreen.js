@@ -8,10 +8,12 @@ export default function MainScreen({ navigation }) {
 			<View style={styles.topContainer}>
 				<Text>상병 김륜기</Text>
 				<Text>         </Text>
+				<Text>the day when you go home 2021-10-01</Text>
+				<Text>         </Text>
 				<Calculate/>
 			</View>
 			<View style={styles.bottomContainer}>
-				<Text>전역일 D-160</Text>
+				<Text>전역일 계산기 기능 추가</Text>
 			</View>
 		</View>
 	);

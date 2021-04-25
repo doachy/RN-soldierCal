@@ -7,8 +7,8 @@ class Calculate extends React.Component {
 		hours: '0',
 		minutes: '0',
 		seconds: '0',
-		nownow: '0',
-		now2: '0',
+		timeNow: '0',
+		timeGoal: '0',
 	};
 
 	intervalId;
@@ -20,18 +20,14 @@ class Calculate extends React.Component {
 		this.intervalId = setInterval(() => {
 			this.countDayFN(march);
 		}, 1000);
-		// countDayFN 함수에 매개변수로 3월1일 객체를 넣어준 후 매 초마다 호출시켜줍니다.
 	}
 
 	countDayFN = (toDate) => {
-		// 매개변수로는 목표날짜를 받아와줍니다.
-		const now = new Date(); // 현재의 날짜 객체를 생성해줍니다.
-		const nownow = now.getTime();
-		const now2 = toDate.getTime();
-		let amount = toDate.getTime() - now.getTime(); // 목표날짜와 현재의 날짜의 gap 을 계산해줍니다.
-		// 그러면 날짜 객체의 모양으로 차이가 나오는게 아니라 일반 실수형의 값이 반환됩니다.
+		const now = new Date();
+		const timeNow = now.getTime();
+		const timeGoal = toDate.getTime();
+		let amount = toDate.getTime() - now.getTime();
 
-		// time is already past
 		if (amount < 0) {
 			this.setState({
 				...this.state,
@@ -49,27 +45,14 @@ class Calculate extends React.Component {
 			let mins = 0;
 			let secs = 0;
 
-			// 일, 시, 분, 초 를 모두 0으로 초기화시켜줍니다.
-
-			amount = Math.floor(amount / 1000); // milliseconds 모두 지워줍니다.
-
-			days = Math.floor(amount / 86400);
-			// 하루는 총 86400 초이기 때문에 86400 으로 나눈 값이 d-day와의 남은 일수를 나타내줍니다.
+			amount = Math.floor(amount / 1000);
+			days = Math.floor(amount / 86400); // floor하면 내림, ceil하면 올림
 			amount = amount % 86400;
-			// 나머지값만 받아와줍니다.
-
 			hours = Math.floor(amount / 3600);
-			// 1시간은 총 3600 초이기 때문에 3600 으로 나눈 값이 d-day와의 남은 시간수를 나타내줍니다.
 			amount = amount % 3600;
-			// 나머지값만 받아와줍니다.
-
 			mins = Math.floor(amount / 60);
-			// 1분은 총 60 초이기 때문에 60 으로 나눈 값이 d-day와의 남은 분 수를 나타내줍니다.
 			amount = amount % 60;
-			// 나머지값만 받아와줍니다.
-
 			secs = Math.floor(amount);
-			// 나머지 값은 남은 초가 됩니다.
 
 			this.setState({
 				...this.state,
@@ -77,15 +60,14 @@ class Calculate extends React.Component {
 				hours,
 				minutes: mins,
 				seconds: secs,
-				nownow,
-				now2,
+				timeNow,
+				timeGoal,
 			});
-			// day, hours, minutes, seconds 에 각각 대입해줍니다.
 		}
 	};
 
 	render() {
-		const { days, hours, minutes, seconds, progress, nownow, now2 } = this.state;
+		const { days, hours, minutes, seconds, progress, timeNow, timeGoal } = this.state;
 		return (
 			<View>
 				<Text>days={days}</Text>
@@ -93,8 +75,8 @@ class Calculate extends React.Component {
 				<Text>minutes={minutes}</Text>
 				<Text>seconds={seconds}</Text>
 				<Text>progress={progress}</Text>
-				<Text>nownow={nownow}</Text>
-				<Text>now2={now2}</Text>
+				<Text>timeNow={timeNow}</Text>
+				<Text>timeGoal={timeGoal}</Text>
 			</View>
 		);
 	}
