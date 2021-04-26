@@ -15,7 +15,7 @@ class Calculate extends React.Component {
 	intervalId2;
 
 	componentDidMount() {
-		const march = new Date('2021-10-01');
+		const march = new Date('2022-02-02');
 
 		this.intervalId = setInterval(() => {
 			this.countDayFN(march);

@@ -6,9 +6,9 @@ export default function MainScreen({ navigation }) {
 	return (
 		<View style={styles.container}>
 			<View style={styles.topContainer}>
-				<Text>상병 김륜기</Text>
+				<Text>상병 유형진</Text>
 				<Text>         </Text>
-				<Text>the day when you go home 2021-10-01</Text>
+				<Text>the day when you go home 2022-02-02</Text>
 				<Text>         </Text>
 				<Calculate/>
 			</View>
