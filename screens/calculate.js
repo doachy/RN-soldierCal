@@ -9,24 +9,31 @@ class Calculate extends React.Component {
 		seconds: '0',
 		timeNow: '0',
 		timeGoal: '0',
+		totalDay: '0',
+		totalDid: '0',
+		perDay: '0',
 	};
 
 	intervalId;
 	intervalId2;
 
 	componentDidMount() {
-		const march = new Date('2022-02-02');
+		const finalDay = new Date('2021-10-01');
+		const startDay = new Date('2020-06-01');
 
 		this.intervalId = setInterval(() => {
-			this.countDayFN(march);
+			this.countDayFN(final, start);
 		}, 1000);
 	}
 
-	countDayFN = (toDate) => {
+	countDayFN = (final, start) => {
 		const now = new Date();
 		const timeNow = now.getTime();
-		const timeGoal = toDate.getTime();
-		let amount = toDate.getTime() - now.getTime();
+		const timeStart = start.getTime();
+		const timeGoal = final.getTime();
+		const total = timeGoal - timeStart;
+		const did = timeNow - timeStart;
+		let amount = final.getTime() - now.getTime(); //남은 복무일
 
 		if (amount < 0) {
 			this.setState({
@@ -35,6 +42,9 @@ class Calculate extends React.Component {
 				hours: '0',
 				minutes: '0',
 				seconds: '0',
+				totalDay: '0',
+				totalDid: '0',
+				perDay: '0',
 			});
 			// 일, 시, 분, 초를 모두 0으로 셋팅해주고
 			clearInterval(this.intervalId);
@@ -54,6 +64,10 @@ class Calculate extends React.Component {
 			amount = amount % 60;
 			secs = Math.floor(amount);
 
+			perDay = (totalDid / totalDay) * 100;
+			totalDid = Math.ceil(totalDid / 86400000);
+			totalDay = Math.floor(totalDay / 86000000);
+
 			this.setState({
 				...this.state,
 				days,
@@ -62,12 +76,26 @@ class Calculate extends React.Component {
 				seconds: secs,
 				timeNow,
 				timeGoal,
+				totalDid,
+				totalDay,
+				perDay,
 			});
 		}
 	};
 
 	render() {
-		const { days, hours, minutes, seconds, progress, timeNow, timeGoal } = this.state;
+		const {
+			days,
+			hours,
+			minutes,
+			seconds,
+			progress,
+			timeNow,
+			timeGoal,
+			totalDay,
+			totalDid,
+			perDay,
+		} = this.state;
 		return (
 			<View>
 				<Text>days={days}</Text>
@@ -77,6 +105,9 @@ class Calculate extends React.Component {
 				<Text>progress={progress}</Text>
 				<Text>timeNow={timeNow}</Text>
 				<Text>timeGoal={timeGoal}</Text>
+				<Text>totalDay={totalDay}</Text>
+				<Text>totalDid={totalDid}</Text>
+				<Text>perDay={perDay}</Text>
 			</View>
 		);
 	}
