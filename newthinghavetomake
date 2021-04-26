@@ -10,9 +10,6 @@ did = now - start
 
 perDay = (did / total)*100
 
-
-
-
 /*받아야 되는 정보
 이름
 군종류 병사, 부사관, 장교
@@ -23,3 +20,9 @@ perDay = (did / total)*100
 전역일 조정
 초기화
 */
+
+결과값들을 한 번에 할 필요없이 나눠서 받고, cal 함수에 모아서 render해도 무방할 듯
+
+다음 작업은 progress bar 추가하는거
+react-native-progress bar 사용해보기.. (04-26)
+
