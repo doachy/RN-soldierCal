@@ -1,0 +1,15 @@
+npm install react-native-progress --save
+
+//example
+import * as Progress from 'react-native-progress';
+<Progress.Bar progress={0.3} width={200} />
+<Progress.Pie progress={0.4} size={50} />
+<Progress.Circle size={30} indeterminate={true} />
+<Progress.CircleSnail color={['red', 'green', 'blue']} />
+
+//how to use this and what is options
+https://www.npmjs.com/package/react-native-progress#installation
+
+//source code
+https://github.com/oblador/react-native-progress/blob/master/Example/App.js
+
