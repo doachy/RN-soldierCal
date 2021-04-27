@@ -22,8 +22,8 @@ class Calculate extends React.Component {
 		const startDay = new Date('2020-06-01');
 
 		this.intervalId = setInterval(() => {
-			this.countDayFN(final, start);
-		}, 1000);
+			this.countDayFN(finalDay, startDay);
+		}, 100);
 	}
 
 	countDayFN = (final, start) => {
@@ -31,8 +31,8 @@ class Calculate extends React.Component {
 		const timeNow = now.getTime();
 		const timeStart = start.getTime();
 		const timeGoal = final.getTime();
-		const total = timeGoal - timeStart;
-		const did = timeNow - timeStart;
+		let Day = timeGoal - timeStart;
+		let Did = timeNow - timeStart;
 		let amount = final.getTime() - now.getTime(); //남은 복무일
 
 		if (amount < 0) {
@@ -54,6 +54,9 @@ class Calculate extends React.Component {
 			let hours = 0;
 			let mins = 0;
 			let secs = 0;
+			let perDay = 0;
+			let totalDay = 0;
+			let totalDid = 0;
 
 			amount = Math.floor(amount / 1000);
 			days = Math.floor(amount / 86400); // floor하면 내림, ceil하면 올림
@@ -64,9 +67,10 @@ class Calculate extends React.Component {
 			amount = amount % 60;
 			secs = Math.floor(amount);
 
-			perDay = (totalDid / totalDay) * 100;
-			totalDid = Math.ceil(totalDid / 86400000);
-			totalDay = Math.floor(totalDay / 86000000);
+			perDay = (Did / Day) * 100;
+			perDay = perDay.toFixed(7);
+			totalDid = Math.ceil(Did / 86400000);
+			totalDay = Math.floor(Day / 86000000) - 1;
 
 			this.setState({
 				...this.state,
@@ -107,7 +111,7 @@ class Calculate extends React.Component {
 				<Text>timeGoal={timeGoal}</Text>
 				<Text>totalDay={totalDay}</Text>
 				<Text>totalDid={totalDid}</Text>
-				<Text>perDay={perDay}</Text>
+				<Text>perDay={perDay}%</Text>
 			</View>
 		);
 	}
