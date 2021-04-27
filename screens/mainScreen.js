@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import Calculate from './calculate';
+import ProgressBar from './progressBar';
 
 export default function MainScreen({ navigation }) {
 	return (
@@ -11,10 +12,12 @@ export default function MainScreen({ navigation }) {
 				<Text>the day when you go home 2022-10-01</Text>
 				<Text>         </Text>
 				<Calculate/>
+				<ProgressBar/>
 			</View>
 			<View style={styles.bottomContainer}>
 				<Text>전역일 계산기 기능 추가 04-24</Text>
-				<Text>계산 세부 기능 추가 04-26<Text>
+				<Text>계산 세부 기능 추가 04-26</Text>
+				<Text>계산 세부 기능 수정 및 페센트 기능 추가 04-27</Text>
 			</View>
 		</View>
 	);
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
 		color: 'blue',
 	},
 	bottomContainer: {
-		flex: 3,
+		flex: 1,
 		alignItems: 'center',
 		color: 'red',
 	},

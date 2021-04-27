@@ -26,3 +26,5 @@ perDay = (did / total)*100
 다음 작업은 progress bar 추가하는거
 react-native-progress bar 사용해보기.. (04-26)
 
+계산 기능 수정 및 퍼센테이지랑 progress 기본 bar 추가 (04-27)
+progress bar 사용 기능 배우기
