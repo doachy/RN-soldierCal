@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import ProgressBar from './progressBar';
+
 
 class Calculate extends React.Component {
 	state = {
@@ -112,6 +114,9 @@ class Calculate extends React.Component {
 				<Text>totalDay={totalDay}</Text>
 				<Text>totalDid={totalDid}</Text>
 				<Text>perDay={perDay}%</Text>
+				<Text></Text>
+				<ProgressBar per={perDay}/>
+				
 			</View>
 		);
 	}
