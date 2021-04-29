@@ -28,3 +28,5 @@ react-native-progress bar 사용해보기.. (04-26)
 
 계산 기능 수정 및 퍼센테이지랑 progress 기본 bar 추가 (04-27)
 progress bar 사용 기능 배우기
+
+progressbar circle 추가 및 function에 props 적용 후 매개변수 전달 (04-28)
