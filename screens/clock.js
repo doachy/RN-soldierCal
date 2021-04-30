@@ -9,17 +9,6 @@ import AnalogClock from 'react-native-clock-analog';
 function App() {
     return (
       <View style={styles.container}>
-        <ImageBackground
-          source={{
-            uri:
-              'https://i.pinimg.com/originals/62/6f/84/626f84c40696c1308a77fd8331e12b3e.jpg',
-          }}
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: 500,
-            width: 500,
-          }}>
           <AnalogClock
             size={100}
           />
@@ -33,7 +22,6 @@ function App() {
             hour="5"
             minutes={55}
           />
-        </ImageBackground>
       </View>
     );
 }
