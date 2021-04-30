@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import ProgressBar from './progressBar';
 
-
 class Calculate extends React.Component {
 	state = {
 		days: '0',
@@ -59,6 +58,10 @@ class Calculate extends React.Component {
 			let perDay = 0;
 			let totalDay = 0;
 			let totalDid = 0;
+			let clockTime = 0;
+			let clockTimeHours = 0;
+			let clockTimeMins = 0;
+			let clockTimeSecs = 0;
 
 			amount = Math.floor(amount / 1000);
 			days = Math.floor(amount / 86400); // floor하면 내림, ceil하면 올림
@@ -72,7 +75,14 @@ class Calculate extends React.Component {
 			perDay = (Did / Day) * 100;
 			perDay = perDay.toFixed(7);
 			totalDid = Math.ceil(Did / 86400000);
-			totalDay = Math.floor(Day / 86000000) - 1;
+			totalDay = Math.floor(Day / 86400000);
+
+			clockTime = (Did / Day) * 86400; //x secs
+			clockTimeHours = Math.floor(clockTime / 3600);
+			clockTime = clockTime % 3600;
+			clockTimeMins = Math.floor(clockTime / 60);
+			clockTime = clockTime % 60;
+			clockTimeSecs = Math.floor(clockTime);
 
 			this.setState({
 				...this.state,
@@ -115,8 +125,7 @@ class Calculate extends React.Component {
 				<Text>totalDid={totalDid}</Text>
 				<Text>perDay={perDay}%</Text>
 				<Text></Text>
-				<ProgressBar per={perDay}/>
-				
+				<ProgressBar per={perDay} />
 			</View>
 		);
 	}

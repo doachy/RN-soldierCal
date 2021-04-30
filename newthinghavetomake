@@ -21,6 +21,24 @@ perDay = (did / total)*100
 초기화
 */
 
+//퍼센트에서 시계로 변환하는 알고리즘
+퍼센트 xx.xxxxxx%를 xx시 xx분 xx초로 변환
+
+24시간을  총 millisec으로 변환하면
+24시간 = 86400 sec = 86400000 millisec
+
+시간에서 퍼센트로 변환시
+x sec / 86400 sec * 100 = per
+(per / 100) * 86400000 = x sec
+
+x millisec로 시, 분, 초 나누어서 계산 후 시계에 대입하면 끝
+
+
+
+
+
+
+
 결과값들을 한 번에 할 필요없이 나눠서 받고, cal 함수에 모아서 render해도 무방할 듯
 
 다음 작업은 progress bar 추가하는거
@@ -30,3 +48,6 @@ react-native-progress bar 사용해보기.. (04-26)
 progress bar 사용 기능 배우기
 
 progressbar circle 추가 및 function에 props 적용 후 매개변수 전달 (04-28)
+
+화면이 부족해서 scrollview 추가 및 퍼센트에서 시계로 변환하는 알고리즘 (04-30)
+
