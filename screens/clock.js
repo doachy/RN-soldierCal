@@ -24,6 +24,8 @@ export default function Clock() {
 
 const styles = StyleSheet.create({
 	container: {
+		marginBottom: 10,
+		marginTop: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
 	}

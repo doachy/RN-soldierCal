@@ -134,7 +134,7 @@ class Calculate extends React.Component {
 					<Text>timeGoal={timeGoal}</Text>
 					<Text>totalDay={totalDay}</Text>
 					<Text>totalDid={totalDid}</Text>
-					<Text style={{marginBottom:100}}>perDay={perDay}%</Text>
+					<Text>perDay={perDay}%</Text>
 				</View>
 				<View style={styles.containerBottom}>
 					<ProgressBar per={perDay} />
