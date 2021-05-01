@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import ProgressBar from './progressBar';
+import Clock from './clock.js';
 
 class Calculate extends React.Component {
 	state = {
@@ -13,6 +14,9 @@ class Calculate extends React.Component {
 		totalDay: '0',
 		totalDid: '0',
 		perDay: '0',
+		clockTimeHours: '0',
+		clockTimeMins: '0',
+		clockTimeSecs: '0',
 	};
 
 	intervalId;
@@ -95,6 +99,9 @@ class Calculate extends React.Component {
 				totalDid,
 				totalDay,
 				perDay,
+				clockTimeHours,
+				clockTimeMins,
+				clockTimeSecs,
 			});
 		}
 	};
@@ -111,24 +118,50 @@ class Calculate extends React.Component {
 			totalDay,
 			totalDid,
 			perDay,
+			clockTimeHours,
+			clockTimeMins,
+			clockTimeSecs,
 		} = this.state;
 		return (
-			<View>
-				<Text>days={days}</Text>
-				<Text>hours={hours}</Text>
-				<Text>minutes={minutes}</Text>
-				<Text>seconds={seconds}</Text>
-				<Text>progress={progress}</Text>
-				<Text>timeNow={timeNow}</Text>
-				<Text>timeGoal={timeGoal}</Text>
-				<Text>totalDay={totalDay}</Text>
-				<Text>totalDid={totalDid}</Text>
-				<Text>perDay={perDay}%</Text>
-				<Text></Text>
-				<ProgressBar per={perDay} />
+			<View style={styles.container}>
+				<View style={styles.containerTop}>
+					<Text>days={days}</Text>
+					<Text>hours={hours}</Text>
+					<Text>minutes={minutes}</Text>
+					<Text>seconds={seconds}</Text>
+					<Text>progress={progress}</Text>
+					<Text>timeNow={timeNow}</Text>
+					<Text>timeGoal={timeGoal}</Text>
+					<Text>totalDay={totalDay}</Text>
+					<Text>totalDid={totalDid}</Text>
+					<Text style={{marginBottom:100}}>perDay={perDay}%</Text>
+				</View>
+				<View style={styles.containerBottom}>
+					<ProgressBar per={perDay} />
+					<Clock />
+					<Text>clockTimeHours={clockTimeHours}</Text>
+					<Text>clockTimeMins={clockTimeMins}</Text>
+					<Text>clockTimeSecs={clockTimeSecs}</Text>
+				</View>
 			</View>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	container:{
+		flex:1,
+		justifyContent: 'center',
+	},
+	containerTop: {
+		flex:1,
+		marginTop: 20,
+		justifyContent: 'center',
+	},
+	containerBottom: {
+		marginTop: 10,
+		justifyContent: 'center',
+	},
+});
 
 export default Calculate;

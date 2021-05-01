@@ -4,15 +4,17 @@ import { StyleSheet, View, Text } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
 
 export default function ProgressBar(props) {
+	let percent1 = Math.floor(props.per);
+	let amount = props.per / 100;
+	let percent2 = amount.toFixed(2);
+
 	return (
 		<View style={styles.container}>
-			<Text></Text>
-			<Text></Text>
-			<Progress.Bar progress={props.per} width={300} />
+			<Progress.Bar progress={percent2} width={300} />
 			<Text>{props.per}%</Text>
 			<Text></Text>
 			<ProgressCircle
-				percent={props.per}
+				percent={percent1}
 				radius={70}
 				borderWidth={12}
 				color="#3399FF"
@@ -27,7 +29,6 @@ export default function ProgressBar(props) {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 0.5,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

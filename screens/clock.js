@@ -6,13 +6,9 @@ import AnalogClock from 'react-native-clock-analog';
 
 //https://www.npmjs.com/package/react-native-clock-analog#-usage
 
-function App() {
+export default function Clock() {
     return (
       <View style={styles.container}>
-          <AnalogClock
-            size={100}
-          />
-          <View style={{ marginBottom: 5 }} />
           <AnalogClock
             colorClock="#fff"
             colorNumber="#000000"
@@ -27,13 +23,8 @@ function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-  },
+	container: {
+		alignItems: 'center',
+		justifyContent: 'center',
+	}
 });
-
-export default App;
