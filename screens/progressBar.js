@@ -6,7 +6,7 @@ import ProgressCircle from 'react-native-progress-circle';
 export default function ProgressBar(props) {
 	let percent1 = Math.floor(props.per);
 	let amount = props.per / 100;
-	let percent2 = amount.toFixed(2);
+	let percent2 = Number(amount.toFixed(2));
 
 	return (
 		<View style={styles.container}>

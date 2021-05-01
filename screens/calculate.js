@@ -17,6 +17,7 @@ class Calculate extends React.Component {
 		clockTimeHours: '0',
 		clockTimeMins: '0',
 		clockTimeSecs: '0',
+		clockTime1:'0',
 	};
 
 	intervalId;
@@ -63,6 +64,7 @@ class Calculate extends React.Component {
 			let totalDay = 0;
 			let totalDid = 0;
 			let clockTime = 0;
+			let clockTime1 = 0;
 			let clockTimeHours = 0;
 			let clockTimeMins = 0;
 			let clockTimeSecs = 0;
@@ -81,7 +83,9 @@ class Calculate extends React.Component {
 			totalDid = Math.ceil(Did / 86400000);
 			totalDay = Math.floor(Day / 86400000);
 
+			clockTime1 = (Did / Day) * 86400; //x secs
 			clockTime = (Did / Day) * 86400; //x secs
+			clockTime = clockTime % 86400;
 			clockTimeHours = Math.floor(clockTime / 3600);
 			clockTime = clockTime % 3600;
 			clockTimeMins = Math.floor(clockTime / 60);
@@ -102,6 +106,7 @@ class Calculate extends React.Component {
 				clockTimeHours,
 				clockTimeMins,
 				clockTimeSecs,
+				clockTime1,
 			});
 		}
 	};
@@ -121,6 +126,7 @@ class Calculate extends React.Component {
 			clockTimeHours,
 			clockTimeMins,
 			clockTimeSecs,
+			clockTime1,
 		} = this.state;
 		return (
 			<View style={styles.container}>
@@ -139,6 +145,7 @@ class Calculate extends React.Component {
 				<View style={styles.containerBottom}>
 					<ProgressBar per={perDay} />
 					<Clock />
+					<Text>clockTime={clockTime1}</Text>
 					<Text>clockTimeHours={clockTimeHours}</Text>
 					<Text>clockTimeMins={clockTimeMins}</Text>
 					<Text>clockTimeSecs={clockTimeSecs}</Text>
@@ -151,10 +158,10 @@ class Calculate extends React.Component {
 const styles = StyleSheet.create({
 	container:{
 		flex:1,
+		height: 500,
 		justifyContent: 'center',
 	},
 	containerTop: {
-		flex:1,
 		marginTop: 20,
 		justifyContent: 'center',
 	},

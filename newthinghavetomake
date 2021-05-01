@@ -28,7 +28,7 @@ perDay = (did / total)*100
 24시간 = 86400 sec = 86400000 millisec
 
 시간에서 퍼센트로 변환시
-x sec / 86400 sec * 100 = per
+x sec / 86400000 * 100 = per
 (per / 100) * 86400000 = x sec
 
 x millisec로 시, 분, 초 나누어서 계산 후 시계에 대입하면 끝
