@@ -44,7 +44,7 @@ class CalculateClock extends React.Component {
 		clockTime = clockTime % 3600;
 		clockTimeMins = Math.floor(clockTime / 60);
 		clockTime = clockTime % 60;
-		clockTimeSecs = Math.floor(clockTime);
+		clockTimeSecs = clockTime.toFixed(3);
 
 		this.setState({
 			...this.state,
@@ -62,7 +62,7 @@ class CalculateClock extends React.Component {
 		return (
 			<View style={styles.container}>
 				<Clock hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
-				<Text>clockTime={clockTime1}</Text>
+				<Text style={{ marginTop: 20 }}>clockTime={clockTime1}</Text>
 				<Text>clockTimeHours={clockTimeHours}</Text>
 				<Text>clockTimeMins={clockTimeMins}</Text>
 				<Text>clockTimeSecs={clockTimeSecs}</Text>

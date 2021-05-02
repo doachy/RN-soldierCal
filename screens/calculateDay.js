@@ -108,6 +108,7 @@ class CalculateDay extends React.Component {
 					<Text>minutes={minutes}</Text>
 					<Text>seconds={seconds}</Text>
 					<Text>timeGoal={timeGoal}</Text>
+					<Text>timeNow={timeNow}</Text>
 					<Text>totalDay={totalDay}</Text>
 					<Text>totalDid={totalDid}</Text>
 					<Text>perDay={perDay}%</Text>
