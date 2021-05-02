@@ -66,6 +66,7 @@ class CalculateClock extends React.Component {
 				<Text>clockTimeHours={clockTimeHours}</Text>
 				<Text>clockTimeMins={clockTimeMins}</Text>
 				<Text>clockTimeSecs={clockTimeSecs}</Text>
+				<Text style={{ marginTop: 20 }}>*국방 시계는 실제 시간보다 훨씬 느리게 흘러갑니다*</Text>
 			</View>
 		);
 	}

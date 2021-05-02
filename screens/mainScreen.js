@@ -19,6 +19,7 @@ export default function MainScreen({ navigation }) {
 					<Text>circle progress bar 추가 04-28</Text>
 					<Text>clock analog 추가 04-29</Text>
 					<Text>1년 6개월->24시간 환산 알고리즘 추가 05-01</Text>
+					<Text>customed clock making, module for clockScreen 05-02</Text>
 				</View>
 			</ScrollView>
 		</SafeAreaView>

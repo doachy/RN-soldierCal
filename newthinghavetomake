@@ -49,5 +49,6 @@ progress bar 사용 기능 배우기
 
 progressbar circle 추가 및 function에 props 적용 후 매개변수 전달 (04-28)
 
-화면이 부족해서 scrollview 추가 및 퍼센트에서 시계로 변환하는 알고리즘 (04-30)
-
+화면이 부족해서 scrollview 추가 및 퍼센트에서 시계로 변환하는 알고리즘 (04-30~05-01)
+초침까지 나오는 시계 추가와 props를 이용한 시계에 시간 반영 (05-02)
+배경 ui 구상 아마도 weather에서 슨 gradient를 가져와서 쓰지 않을까 싶음 (05-02)
