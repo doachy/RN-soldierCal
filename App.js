@@ -6,7 +6,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import MainScreen from './screens/mainScreen';
 import ShareScreen from './screens/shareScreen';
-import EvaluationScreen from './screens/evaluationScreen';
+import ClockScreen from './screens/clockScreen';
 import AskScreen from './screens/askScreen';
 import NoticeScreen from './screens/noticeScreen';
 
@@ -20,7 +20,7 @@ export default function App() {
 				screenOptions={{
 					headerShown: true,
 					headerRight: () => (
-						<Button onPress={() => alert('This is a button!')} title="Info" />
+						<Button onPress={() => alert('you can change the information for you!')} title="edit" />
 					),
 				}}
 			>
@@ -31,8 +31,8 @@ export default function App() {
 						headerTitle: 'Sodier Calculation',
 					}}
 				/>
+				<Drawer.Screen name="clock" component={ClockScreen} options={{headerTitle: 'Soldier Clock'}} />
 				<Drawer.Screen name="share" component={ShareScreen} />
-				<Drawer.Screen name="evaluation" component={EvaluationScreen} />
 				<Drawer.Screen name="ask" component={AskScreen} />
 				<Drawer.Screen name="notice" component={NoticeScreen} />
 			</Drawer.Navigator>
