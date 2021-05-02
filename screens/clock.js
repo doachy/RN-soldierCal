@@ -2,30 +2,27 @@ import * as React from 'react';
 import { Button, View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import AnalogClock from 'react-native-clock-analog';
+import NewClock from '../screens/newClock';
 
 //https://www.npmjs.com/package/react-native-clock-analog#-usage
 
-export default function Clock() {
-    return (
-      <View style={styles.container}>
-          <AnalogClock
-            colorClock="#fff"
-            colorNumber="#000000"
-            colorCenter="#000000"
-            colorHour="#000000"
-            colorMinutes="#000000"
-            hour="5"
-            minutes={55}
-          />
-      </View>
-    );
+export default function Clock(props) {
+	let hours = props.hours;
+	let mins = props.mins;
+	let secs = props.secs;
+
+	return (
+		<View style={styles.container}>
+			<NewClock hour={hours} minutes={mins} seconds={secs} />
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
 	container: {
+		marginTop: 10,
 		marginBottom: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
-	}
+	},
 });

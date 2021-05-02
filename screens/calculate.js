@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import ProgressBar from './progressBar';
-import Clock from './clock.js';
+import Clock from './clock';
 
 class Calculate extends React.Component {
 	state = {
@@ -17,7 +17,7 @@ class Calculate extends React.Component {
 		clockTimeHours: '0',
 		clockTimeMins: '0',
 		clockTimeSecs: '0',
-		clockTime1:'0',
+		clockTime1: '0',
 	};
 
 	intervalId;
@@ -144,7 +144,7 @@ class Calculate extends React.Component {
 				</View>
 				<View style={styles.containerBottom}>
 					<ProgressBar per={perDay} />
-					<Clock />
+					<Clock hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
 					<Text>clockTime={clockTime1}</Text>
 					<Text>clockTimeHours={clockTimeHours}</Text>
 					<Text>clockTimeMins={clockTimeMins}</Text>
@@ -156,8 +156,8 @@ class Calculate extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	container:{
-		flex:1,
+	container: {
+		flex: 1,
 		height: 500,
 		justifyContent: 'center',
 	},
