@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import ProgressBar from './progressBar';
 import Clock from './clock';
 
-class Calculate extends React.Component {
+class CalculateDay extends React.Component {
 	state = {
 		days: '0',
 		hours: '0',
@@ -14,10 +14,6 @@ class Calculate extends React.Component {
 		totalDay: '0',
 		totalDid: '0',
 		perDay: '0',
-		clockTimeHours: '0',
-		clockTimeMins: '0',
-		clockTimeSecs: '0',
-		clockTime1: '0',
 	};
 
 	intervalId;
@@ -63,11 +59,6 @@ class Calculate extends React.Component {
 			let perDay = 0;
 			let totalDay = 0;
 			let totalDid = 0;
-			let clockTime = 0;
-			let clockTime1 = 0;
-			let clockTimeHours = 0;
-			let clockTimeMins = 0;
-			let clockTimeSecs = 0;
 
 			amount = Math.floor(amount / 1000);
 			days = Math.floor(amount / 86400); // floor하면 내림, ceil하면 올림
@@ -83,15 +74,6 @@ class Calculate extends React.Component {
 			totalDid = Math.ceil(Did / 86400000);
 			totalDay = Math.floor(Day / 86400000);
 
-			clockTime1 = (Did / Day) * 86400; //x secs
-			clockTime = (Did / Day) * 86400; //x secs
-			clockTime = clockTime % 86400;
-			clockTimeHours = Math.floor(clockTime / 3600);
-			clockTime = clockTime % 3600;
-			clockTimeMins = Math.floor(clockTime / 60);
-			clockTime = clockTime % 60;
-			clockTimeSecs = Math.floor(clockTime);
-
 			this.setState({
 				...this.state,
 				days,
@@ -103,10 +85,6 @@ class Calculate extends React.Component {
 				totalDid,
 				totalDay,
 				perDay,
-				clockTimeHours,
-				clockTimeMins,
-				clockTimeSecs,
-				clockTime1,
 			});
 		}
 	};
@@ -117,39 +95,23 @@ class Calculate extends React.Component {
 			hours,
 			minutes,
 			seconds,
-			progress,
 			timeNow,
 			timeGoal,
 			totalDay,
 			totalDid,
 			perDay,
-			clockTimeHours,
-			clockTimeMins,
-			clockTimeSecs,
-			clockTime1,
 		} = this.state;
 		return (
 			<View style={styles.container}>
-				<View style={styles.containerTop}>
 					<Text>days={days}</Text>
 					<Text>hours={hours}</Text>
 					<Text>minutes={minutes}</Text>
 					<Text>seconds={seconds}</Text>
-					<Text>progress={progress}</Text>
-					<Text>timeNow={timeNow}</Text>
 					<Text>timeGoal={timeGoal}</Text>
 					<Text>totalDay={totalDay}</Text>
 					<Text>totalDid={totalDid}</Text>
 					<Text>perDay={perDay}%</Text>
-				</View>
-				<View style={styles.containerBottom}>
 					<ProgressBar per={perDay} />
-					<Clock hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
-					<Text>clockTime={clockTime1}</Text>
-					<Text>clockTimeHours={clockTimeHours}</Text>
-					<Text>clockTimeMins={clockTimeMins}</Text>
-					<Text>clockTimeSecs={clockTimeSecs}</Text>
-				</View>
 			</View>
 		);
 	}
@@ -158,7 +120,6 @@ class Calculate extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		height: 500,
 		justifyContent: 'center',
 	},
 	containerTop: {
@@ -171,4 +132,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Calculate;
+export default CalculateDay;

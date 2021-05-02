@@ -129,7 +129,7 @@ NewClock.propTypes = {
 };
 
 NewClock.defaultProps = {
-	size: 180,
+	size: 200,
 	colorClock: 'rgba(255,255,255,0.8)',
 	colorNumber: '#000',
 	colorCenter: '#000',

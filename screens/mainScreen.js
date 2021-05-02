@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View, SafeAreaView, ScrollView, StatusBar } from 'react-native';
-import Calculate from './calculate';
+import CalculateDay from './calculateDay';
 import ProgressBar from './progressBar';
 
 export default function MainScreen({ navigation }) {
@@ -10,7 +10,7 @@ export default function MainScreen({ navigation }) {
 				<View style={styles.topContainer}>
 					<Text>상병 김륜기</Text>
 					<Text>the day when you go home 2021-10-01</Text>
-					<Calculate />
+					<CalculateDay />
 				</View>
 				<View style={styles.bottomContainer}>
 					<Text>전역일 계산기 기능 추가 04-24</Text>
