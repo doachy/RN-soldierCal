@@ -33,6 +33,18 @@ x sec / 86400000 * 100 = per
 
 x millisec로 시, 분, 초 나누어서 계산 후 시계에 대입하면 끝
 
+/시간대별/
+second: 초
+minute: 분
+hour: 시
+dawn: 새벽
+morning, forenoon: 아침, 오전
+noon, midnoon: 낮, 오정
+afternoon: 오후
+evening: 저녁
+midnight: 자정
+night: 밤
+
 
 
 
