@@ -32,7 +32,9 @@ export default function App() {
 					}}
 				/>
 				<Drawer.Screen name="clock" component={ClockScreen} options={{headerTitle: 'Soldier Clock'}} />
-				<Drawer.Screen name="share" component={ShareScreen} options={{headerTitle: 'scenery'}}/>
+				<Drawer.Screen name="share" component={ShareScreen} screenOptions={{
+						headerShown: false
+					}}options={{headerTitle: 'scenery'}}/>
 				<Drawer.Screen name="ask" component={AskScreen} />
 				<Drawer.Screen name="notice" component={NoticeScreen} />
 			</Drawer.Navigator>
