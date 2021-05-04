@@ -4,7 +4,21 @@ import Scenery from '../screens/scenery';
 
 export default function ShareScreen({ navigation }) {
 	const condition='Morning';
+//	const condition='Sunrise';
+//	const condition='Noon';
+//	const condition='Afternoon';
+//	const condition='Evening';
+//	const condition='Sunset';
+//  const condition='Midnight';
 	return (
 			<Scenery condition={condition}/>
 	);
 }
+
+/*		'Morning',
+		'Sunrise',
+		'Noon',
+		'Afternoon',
+		'Evening',
+		'Sunset',
+		'Midnight', */
