@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const sceneryOption = {
 	EarlyMorning: {
-		gradient: ['#000428', '#004e92', '#004e92'], //done frost
+		gradient: ['#000428', '#004e92', '#004e92'], //done frost ㅇㅇ
 		title: 'Morning',
 		subtitle: 'have a good day',
 		statusBar: 'dark-content',
@@ -17,33 +17,15 @@ const sceneryOption = {
 		statusBar: 'dark-content',
 	},
 	Sunrise: {
-		gradient: ['#003973', '#6DD5FA', '#F2A1A0'], //done
+		gradient: ['#003973', '#6DD5FA', '#F2A1A0'], //done ㅇㅇ
 		title: 'Sunrise',
 		subtitle: 'its time to get up!',
-		statusBar: 'dark-content',
-	},
-	BeforeSunrise: {
-		gradient: ['#334d50', '#334d50', '#cbcaa5'], //done anwar
-		title: 'Sunrise',
-		subtitle: 'its time to get up!',
-		statusBar: 'dark-content',
-	},
-	Noon: {
-		gradient: ['#2193b0', '#6dd5ed', '#6dd5ed'], //done sexy blue
-		title: 'Noon',
-		subtitle: 'did you have lunch?',
 		statusBar: 'dark-content',
 	},
 	Afternoon: {
-		gradient: ['#2193b0', '#6dd5ed', '#6dd5ed'],
+		gradient: ['#0082c8', '#0082c8', '#FFFFFF'], // done hydrogen ㅇㅇ
 		title: 'Afternoon',
 		subtitle: 'time to go out',
-		statusBar: 'dark-content',
-	},
-	Evening: {
-		gradient: ['#1A2980', '#26D0CE', '#26D0CE'], //done aqua marine
-		title: 'Evening',
-		subtitle: 'hi',
 		statusBar: 'dark-content',
 	},
 	Sunset: {
