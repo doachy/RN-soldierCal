@@ -71,7 +71,7 @@ class CalculateClock extends React.Component {
 
 		return (
 			<View style={styles.container}>
-				<Scenery condition={conditions[this.state.num]} />
+				<Scenery condition={conditions[4]} />
 				<Clock hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
 				<View style={styles.textbox}>
 					<Button title="push" onPress={() => this.handleClick()}></Button>
