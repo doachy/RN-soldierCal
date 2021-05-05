@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import Clock from './clock';
+import Scenery from './scenery';
 
 class CalculateClock extends React.Component {
 	state = {
@@ -8,6 +9,7 @@ class CalculateClock extends React.Component {
 		clockTimeMins: '0',
 		clockTimeSecs: '0',
 		clockTime1: '0',
+		num: '0',
 	};
 
 	intervalId;
@@ -57,16 +59,30 @@ class CalculateClock extends React.Component {
 		});
 	};
 
+	 handleClick() {
+    this.setState(() => {
+      return {num: this.state.num + 1};
+    });
+  };
+
 	render() {
-		const { clockTimeHours, clockTimeMins, clockTimeSecs, clockTime1 } = this.state;
+		const { clockTimeHours, clockTimeMins, clockTimeSecs, clockTime1, num } = this.state;
+		const conditions = ['EarlyMorning', 'Morning', 'Sunrise', 'Afternoon', 'Sunset', 'Midnight'];
+
 		return (
 			<View style={styles.container}>
+				<Scenery condition={conditions[this.state.num]} />
 				<Clock hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
-				<Text style={{ marginTop: 20 }}>clockTime={clockTime1}</Text>
-				<Text>clockTimeHours={clockTimeHours}</Text>
-				<Text>clockTimeMins={clockTimeMins}</Text>
-				<Text>clockTimeSecs={clockTimeSecs}</Text>
-				<Text style={{ marginTop: 20 }}>*국방 시계는 실제 시간보다 훨씬 느리게 흘러갑니다*</Text>
+				<View style={styles.textbox}>
+					<Button title="push" onPress={() => this.handleClick()}></Button>
+					<Text style={{ marginTop: 20, color: 'white' }}>clockTime={clockTime1}</Text>
+					<Text style={styles.text}>clockTimeHours={clockTimeHours}</Text>
+					<Text style={styles.text}>clockTimeMins={clockTimeMins}</Text>
+					<Text style={styles.text}>clockTimeSecs={clockTimeSecs}</Text>
+					<Text style={{ marginTop: 20, color: 'white' }}>
+						*국방 시계는 실제 시간보다 훨씬 느리게 흘러갑니다*
+					</Text>
+				</View>
 			</View>
 		);
 	}
@@ -75,8 +91,13 @@ class CalculateClock extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		height: 500,
-		justifyContent: 'center',
+		width: 414,
+	},
+	textbox: {
+		alignItems: 'center',
+	},
+	text: {
+		color: 'white',
 	},
 });
 

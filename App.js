@@ -15,26 +15,24 @@ const Drawer = createDrawerNavigator();
 export default function App() {
 	return (
 		<NavigationContainer>
-			<Drawer.Navigator
-				initialRouteName="main"
-				screenOptions={{
-					headerShown: true,
-					headerRight: () => (
-						<Button onPress={() => alert('you can change the information for you!')} title="edit" />
-					),
-				}}
-			>
+			<Drawer.Navigator initialRouteName="main">
 				<Drawer.Screen
 					name="main"
 					component={MainScreen}
 					options={{
 						headerTitle: 'Sodier Calculation',
+						headerShown: true,
 					}}
 				/>
-				<Drawer.Screen name="clock" component={ClockScreen} options={{headerTitle: 'Soldier Clock'}} />
-				<Drawer.Screen name="share" component={ShareScreen} screenOptions={{
-						headerShown: false
-					}}options={{headerTitle: 'scenery'}}/>
+				<Drawer.Screen
+					name="clock"
+					component={ClockScreen}
+				/>
+				<Drawer.Screen
+					name="share"
+					component={ShareScreen}
+					options={{ headerTitle: 'scenery' }}
+				/>
 				<Drawer.Screen name="ask" component={AskScreen} />
 				<Drawer.Screen name="notice" component={NoticeScreen} />
 			</Drawer.Navigator>

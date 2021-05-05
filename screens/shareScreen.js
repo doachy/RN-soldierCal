@@ -6,9 +6,9 @@ export default function ShareScreen({ navigation }) {
 //	const condition='Morning';
 //	const condition='EarlyMorning';
 //	const condition='Sunrise';
-	const condition='Afternoon';
+//	const condition='Afternoon';
 //	const condition='Sunset';
-//  const condition='Midnight';
+  const condition='Midnight';
 	return (
 			<Scenery condition={condition}/>
 	);

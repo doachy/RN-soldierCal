@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 const sceneryOption = {
 	EarlyMorning: {
 		gradient: ['#000428', '#004e92', '#004e92'], //done frost ㅇㅇ
-		title: 'Morning',
+		title: 'early Morning',
 		subtitle: 'have a good day',
 		statusBar: 'dark-content',
 	},
@@ -38,21 +38,27 @@ const sceneryOption = {
 		gradient: ['#000428', '#000428', '#004E92'], //done frost ㅇㅇ
 		title: 'Midnight',
 		subtitle: 'its time to go sleep',
-		statusBar: 'dark-content',
+		statusBar: 'light-content',
 	},
 };
 
-export default function Scenery({condition}){
+export default function Scenery({ condition }) {
 	return (
 		<View style={styles.container}>
 			<LinearGradient
 				// Background Linear Gradient
-				colors={[sceneryOption[condition].gradient[0],sceneryOption[condition].gradient[1],sceneryOption[condition].gradient[2]]}
+				colors={[
+					sceneryOption[condition].gradient[0],
+					sceneryOption[condition].gradient[1],
+					sceneryOption[condition].gradient[2],
+				]}
 				style={styles.background}
 			/>
-			<StatusBar barStyle={sceneryOption[condition].statusBar}/>
-			<Text style={styles.title}>{sceneryOption[condition].title}</Text>
-			<Text style={styles.subtitle}>{sceneryOption[condition].subtitle}</Text>
+			<StatusBar barStyle={sceneryOption[condition].statusBar} />
+			<View style={styles.textbox}>
+				<Text style={styles.title}>{sceneryOption[condition].title}</Text>
+				<Text style={styles.subtitle}>{sceneryOption[condition].subtitle}</Text>
+			</View>
 		</View>
 	);
 }
@@ -62,10 +68,7 @@ Scenery.propTypes = {
 		'EarlyMorning',
 		'Morning',
 		'Sunrise',
-		'Noon',
 		'Afternoon',
-		'BeforeSunrise',
-		'Evening',
 		'Sunset',
 		'Midnight',
 	]).isRequired,
@@ -73,9 +76,12 @@ Scenery.propTypes = {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
+	},
+	textbox:{
+		marginTop:200,
+		marginBottom:30,
 	},
 	hour: {
 		fontSize: 36,
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		color: 'white',
-		fontSize: 44,
+		fontSize: 50,
 		fontWeight: '300',
 		marginBottom: 10,
 	},
@@ -106,7 +112,7 @@ const styles = StyleSheet.create({
 		left: 0,
 		right: 0,
 		top: 0,
-		height: 1000,
+		height: 900,
 	},
 	button: {
 		padding: 15,

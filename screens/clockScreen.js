@@ -5,13 +5,9 @@ import Clock from './clock';
 
 export default function ClockScreen({ navigation }) {
 	return (
-		<SafeAreaView style={styles.container}>
-			<ScrollView contentContainerStyle={styles.contentContainer}>
-				<View>
+				<View style={styles.container}>
 					<CalculateClock/>
 				</View>
-			</ScrollView>
-		</SafeAreaView>
 	);
 }
 
