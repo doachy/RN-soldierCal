@@ -9,7 +9,7 @@ class CalculateClock extends React.Component {
 		clockTimeMins: '0',
 		clockTimeSecs: '0',
 		clockTime1: '0',
-		num: '0',
+		num: 0,
 	};
 
 	intervalId;
@@ -18,6 +18,7 @@ class CalculateClock extends React.Component {
 	componentDidMount() {
 		const finalDay = new Date('2021-10-01');
 		const startDay = new Date('2020-06-01');
+		
 
 		this.intervalId = setInterval(() => {
 			this.countDayFN(finalDay, startDay);
@@ -61,23 +62,29 @@ class CalculateClock extends React.Component {
 
 	 handleClick() {
     this.setState(() => {
-      return {num: this.state.num + 1};
+		if(this.state.num>4){
+			this.setState({
+				num: 0,
+			})
+		} else {
+			return {num: this.state.num + 1};
+		}
     });
   };
 
 	render() {
 		const { clockTimeHours, clockTimeMins, clockTimeSecs, clockTime1, num } = this.state;
-		const conditions = ['EarlyMorning', 'Morning', 'Sunrise', 'Afternoon', 'Sunset', 'Midnight'];
-
+		const conditions = ['EarlyMorning', 'Sunrise', 'Morning', 'Afternoon', 'Sunset', 'Midnight'];
 		return (
 			<View style={styles.container}>
-				<Scenery condition={conditions[4]} />
+				<Scenery condition={conditions[this.state.num]} />
 				<Clock hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
 				<View style={styles.textbox}>
 					<Button title="push" onPress={() => this.handleClick()}></Button>
 					<Text style={{ marginTop: 20, color: 'white' }}>clockTime={clockTime1}</Text>
 					<Text style={styles.text}>clockTimeHours={clockTimeHours}</Text>
 					<Text style={styles.text}>clockTimeMins={clockTimeMins}</Text>
+					<Text style={styles.text}>num={num}</Text>
 					<Text style={styles.text}>clockTimeSecs={clockTimeSecs}</Text>
 					<Text style={{ marginTop: 20, color: 'white' }}>
 						*국방 시계는 실제 시간보다 훨씬 느리게 흘러갑니다*
