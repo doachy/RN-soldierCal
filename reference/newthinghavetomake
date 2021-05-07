@@ -10,7 +10,7 @@ did = now - start
 
 perDay = (did / total)*100
 
-/*받아야 되는 정보
+// 받아야 되는 정보
 이름
 군종류 병사, 부사관, 장교
 입대일
@@ -19,7 +19,7 @@ perDay = (did / total)*100
 진급일 조정
 전역일 조정
 초기화
-*/
+
 
 //퍼센트에서 시계로 변환하는 알고리즘
 퍼센트 xx.xxxxxx%를 xx시 xx분 xx초로 변환
@@ -33,7 +33,9 @@ x sec / 86400000 * 100 = per
 
 x millisec로 시, 분, 초 나누어서 계산 후 시계에 대입하면 끝
 
-/시간대별/
+
+
+//시간대별
 second: 초
 minute: 분
 hour: 시
@@ -44,6 +46,19 @@ afternoon: 오후
 evening: 저녁
 midnight: 자정
 night: 밤
+
+
+
+//스크린 심플하게 정리하고, 간결한 코드 만들기
+공통된 코드를 하나의 함수에 통일하고 다른 부분만 나누기,,
+
+1.clock -> newclock에서 바로 newclock으로 구동하도록 바꾸기
+2. calculate day와 calculateclock 통합 후 컴포넌트간 데이터 이동으로 수정(부모함수 전달 후 자식에서 함수에 데이터 전달하는 방식)
+ - mainscreen에 day데이터 전달, clockscreen에 clock데이터 전달.
+
+
+//앞으로 해야될 것
+drawer 디자인
 
 
 
@@ -63,3 +78,5 @@ progressbar circle 추가 및 function에 props 적용 후 매개변수 전달 (
 화면이 부족해서 scrollview 추가 및 퍼센트에서 시계로 변환하는 알고리즘 (04-30~05-01)
 초침까지 나오는 시계 추가와 props를 이용한 시계에 시간 반영 (05-02)
 배경 ui 구상 아마도 weather에서 슨 gradient를 가져와서 쓰지 않을까 싶음 (05-02)
+배경을 gradient로 만들고 clock과 합침 (05-05)
+button을 누르면 background가 바뀌도록 기능 추가 (05-06)
