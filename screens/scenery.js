@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, StyleSheet, StatusBar, SafeAreaView, ScrollView, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import Clock from './clock';
+import ProgressBar from './progressBar';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default class Scenery extends React.Component {
@@ -21,13 +22,16 @@ export default class Scenery extends React.Component {
 		});
 	}
 	render() {
-		let {
-			clockTimeHours,
-			clockTimeMins,
-			clockTimeSecs,
-			clockTime1,
-		} = this.props;
-		
+		let { clockTimeHours, clockTimeMins, clockTimeSecs, clockTime1,			days,
+			hours,
+			minutes,
+			seconds,
+			timeNow,
+			timeGoal,
+			totalDay,
+			totalDid,
+			perDay } = this.props;
+
 		const { num } = this.state;
 		const conditions = [
 			'EarlyMorning',
@@ -38,7 +42,6 @@ export default class Scenery extends React.Component {
 			'Midnight',
 		];
 		const condition = conditions[num];
-		
 
 		const sceneryOption = {
 			EarlyMorning: {
@@ -109,6 +112,18 @@ export default class Scenery extends React.Component {
 							<Text style={{ marginTop: 20, color: 'white' }}>
 								*국방 시계는 실제 시간보다 훨씬 느리게 흘러갑니다*
 							</Text>
+						</View>
+						<View style={styles.textbox}>
+							<Text style={styles.text}>days={days}</Text>
+							<Text style={styles.text}>hours={hours}</Text>
+							<Text style={styles.text}>minutes={minutes}</Text>
+							<Text style={styles.text}>seconds={seconds}</Text>
+							<Text style={styles.text}>timeGoal={timeGoal}</Text>
+							<Text style={styles.text}>timeNow={timeNow}</Text>
+							<Text style={styles.text}>totalDay={totalDay}</Text>
+							<Text style={styles.text}>totalDid={totalDid}</Text>
+							<Text style={styles.text}>perDay={perDay}%</Text>
+							<ProgressBar per={perDay} />
 						</View>
 					</ScrollView>
 				</SafeAreaView>
