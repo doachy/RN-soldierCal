@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -12,7 +11,11 @@ const Drawer = createDrawerNavigator();
 export default function App() {
 	return (
 		<NavigationContainer>
-			<Drawer.Navigator initialRouteName="main">
+			<Drawer.Navigator initialRouteName="clock">
+				<Drawer.Screen
+					name="clock"
+					component={ClockScreen}
+				/>
 				<Drawer.Screen
 					name="main"
 					component={MainScreen}
@@ -20,10 +23,6 @@ export default function App() {
 						headerTitle: 'Sodier Calculation',
 						headerShown: true,
 					}}
-				/>
-				<Drawer.Screen
-					name="clock"
-					component={ClockScreen}
 				/>
 			</Drawer.Navigator>
 		</NavigationContainer>

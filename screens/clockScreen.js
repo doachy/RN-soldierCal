@@ -1,18 +1,7 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import CalculateClock from './calculateClock';
-import Clock from './clock';
+import Calculate from '../components/calculate';
 
 export default function ClockScreen({ navigation }) {
-	return (
-					<CalculateClock/>
-	);
+	return <Calculate />;
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});

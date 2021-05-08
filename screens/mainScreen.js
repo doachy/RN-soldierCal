@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button, StyleSheet, Text, View, SafeAreaView, ScrollView, StatusBar } from 'react-native';
-import CalculateDay from './calculateDay';
-import ProgressBar from './progressBar';
+import CalculateDay from '../components/calculateDay';
+import ProgressBar from '../components/progressBar';
 
 export default function MainScreen({ navigation }) {
 	return (

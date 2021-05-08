@@ -1,10 +1,14 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import ProgressBar from './progressBar';
-import Clock from './clock';
+import Scenery from './scenery';
 
 class Calculate extends React.Component {
 	state = {
+		clockTimeHours: '0',
+		clockTimeMins: '0',
+		clockTimeSecs: '0',
+		clockTime1: '0',
+		num: 0,
 		days: '0',
 		hours: '0',
 		minutes: '0',
@@ -14,11 +18,6 @@ class Calculate extends React.Component {
 		totalDay: '0',
 		totalDid: '0',
 		perDay: '0',
-		clockTimeHours: '0',
-		clockTimeMins: '0',
-		clockTimeSecs: '0',
-		clockTime1: '0',
-		num: 0,
 	};
 
 	intervalId;
@@ -30,7 +29,7 @@ class Calculate extends React.Component {
 
 		this.intervalId = setInterval(() => {
 			this.countDayFN(finalDay, startDay);
-		}, 100);
+		}, 200);
 	}
 
 	countDayFN = (final, start) => {
@@ -48,28 +47,43 @@ class Calculate extends React.Component {
 		let clockTimeMins = 0;
 		let clockTimeSecs = 0;
 
+		let days = 0;
+		let hours = 0;
+		let mins = 0;
+		let secs = 0;
+		let perDay = 0;
+		let totalDay = 0;
+		let totalDid = 0;
+
 		if (amount < 0) {
 			this.setState({
 				...this.state,
+				clockTimeHours: '0',
+				clockTimeMins: '0',
+				clockTimeSecs: '0',
+				clockTime1: '0',
+				num: 0,
 				days: '0',
 				hours: '0',
 				minutes: '0',
 				seconds: '0',
+				timeNow: '0',
+				timeGoal: '0',
 				totalDay: '0',
 				totalDid: '0',
 				perDay: '0',
 			});
-			// 일, 시, 분, 초를 모두 0으로 셋팅해주고
 			clearInterval(this.intervalId);
-			// intervalId 를 삭제시켜줌으로써 더이상의 함수 호출을 멈춰줍니다.
 		} else {
-			let days = 0;
-			let hours = 0;
-			let mins = 0;
-			let secs = 0;
-			let perDay = 0;
-			let totalDay = 0;
-			let totalDid = 0;
+			clockTime1 = (Did / Day) * 86400; //x secs
+			clockTime1 = clockTime1.toFixed(3);
+			clockTime = (Did / Day) * 86400; //x secs
+			clockTime = clockTime % 86400;
+			clockTimeHours = Math.floor(clockTime / 3600);
+			clockTime = clockTime % 3600;
+			clockTimeMins = Math.floor(clockTime / 60);
+			clockTime = clockTime % 60;
+			clockTimeSecs = clockTime.toFixed(3);
 
 			amount = Math.floor(amount / 1000);
 			days = Math.floor(amount / 86400); // floor하면 내림, ceil하면 올림
@@ -85,18 +99,14 @@ class Calculate extends React.Component {
 			totalDid = Math.ceil(Did / 86400000);
 			totalDay = Math.floor(Day / 86400000);
 
-			clockTime1 = (Did / Day) * 86400; //x secs
-			clockTime1 = clockTime1.toFixed(3);
-			clockTime = (Did / Day) * 86400; //x secs
-			clockTime = clockTime % 86400;
-			clockTimeHours = Math.floor(clockTime / 3600);
-			clockTime = clockTime % 3600;
-			clockTimeMins = Math.floor(clockTime / 60);
-			clockTime = clockTime % 60;
-			clockTimeSecs = clockTime.toFixed(3);
-
 			this.setState({
 				...this.state,
+				timeNow,
+				timeGoal,
+				clockTimeHours,
+				clockTimeMins,
+				clockTimeSecs,
+				clockTime1,
 				days,
 				hours,
 				minutes: mins,
@@ -106,21 +116,16 @@ class Calculate extends React.Component {
 				totalDid,
 				totalDay,
 				perDay,
-				timeNow,
-				timeGoal,
-				clockTimeHours,
-				clockTimeMins,
-				clockTimeSecs,
-				clockTime1,
 			});
 		}
 	};
-	senddata = () => {
-		this.props.getdata(this.state.days
-			);
-	};
+
 	render() {
 		const {
+			clockTimeHours,
+			clockTimeMins,
+			clockTimeSecs,
+			clockTime1,
 			days,
 			hours,
 			minutes,
@@ -130,29 +135,26 @@ class Calculate extends React.Component {
 			totalDay,
 			totalDid,
 			perDay,
-			clockTimeHours,
-			clockTimeMins,
-			clockTimeSecs,
-			clockTime1,
-			num,
 		} = this.state;
-		return (this.senddata);
+
+		return (
+			<Scenery
+				clockTimeHours={clockTimeHours}
+				clockTimeMins={clockTimeMins}
+				clockTimeSecs={clockTimeSecs}
+				clockTime1={clockTime1}
+				days={days}
+				hours={hours}
+				minutes={minutes}
+				seconds={seconds}
+				timeNow={timeNow}
+				timeGoal={timeGoal}
+				totalDay={totalDay}
+				totalDid={totalDid}
+				perDay={perDay}
+			/>
+		);
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-	},
-	containerTop: {
-		marginTop: 20,
-		justifyContent: 'center',
-	},
-	containerBottom: {
-		marginTop: 10,
-		justifyContent: 'center',
-	},
-});
 
 export default Calculate;

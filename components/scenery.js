@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, StatusBar, SafeAreaView, ScrollView, Button } from 'react-native';
 import PropTypes from 'prop-types';
-import Clock from './clock';
+import ClockContaioner from './clockContainer';
 import ProgressBar from './progressBar';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -22,7 +22,12 @@ export default class Scenery extends React.Component {
 		});
 	}
 	render() {
-		let { clockTimeHours, clockTimeMins, clockTimeSecs, clockTime1,			days,
+		let {
+			clockTimeHours,
+			clockTimeMins,
+			clockTimeSecs,
+			clockTime1,
+			days,
 			hours,
 			minutes,
 			seconds,
@@ -30,7 +35,8 @@ export default class Scenery extends React.Component {
 			timeGoal,
 			totalDay,
 			totalDid,
-			perDay } = this.props;
+			perDay,
+		} = this.props;
 
 		const { num } = this.state;
 		const conditions = [
@@ -82,6 +88,7 @@ export default class Scenery extends React.Component {
 			},
 		};
 		return (
+					//스타일 지워야됨.
 			<View style={styles.container}>
 				<LinearGradient
 					// Background Linear Gradient
@@ -99,7 +106,7 @@ export default class Scenery extends React.Component {
 							<Text style={styles.title}>{sceneryOption[condition].title}</Text>
 							<Text style={styles.subtitle}>{sceneryOption[condition].subtitle}</Text>
 						</View>
-						<Clock hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
+						<ClockContaioner hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
 						<View style={styles.textbox}>
 							<Button title="push" onPress={() => this.handleClick()}></Button>
 							<Text style={{ marginTop: 20, color: 'white' }}>
@@ -157,15 +164,8 @@ const styles = StyleSheet.create({
 	textbox2: {
 		marginTop: 120,
 		marginBottom: 20,
-	},
-	hour: {
-		fontSize: 36,
-		color: 'white',
-	},
-	halfContainer: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
+		paddingHorizontal: 20,
+		alignItems: 'flex-start',
 	},
 	title: {
 		color: 'white',
@@ -177,10 +177,6 @@ const styles = StyleSheet.create({
 		color: 'white',
 		fontWeight: '600',
 		fontSize: 24,
-	},
-	textContainer: {
-		paddingHorizontal: 20,
-		alignItems: 'flex-start',
 	},
 	background: {
 		position: 'absolute',

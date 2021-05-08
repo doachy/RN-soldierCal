@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { Button, View, Text, ImageBackground, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import NewClock from '../screens/newClock';
+import { View, StyleSheet } from 'react-native';
+import NewClock from './newClock';
 
 //https://www.npmjs.com/package/react-native-clock-analog#-usage
 
-export default function Clock(props) {
+export default function ClockContainer(props) {
 	let hours = props.hours;
 	let mins = props.mins;
 	let secs = props.secs;
