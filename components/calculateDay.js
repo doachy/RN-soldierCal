@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import ProgressBar from './progressBar';
-import Clock from './clock';
 
 class CalculateDay extends React.Component {
 	state = {
