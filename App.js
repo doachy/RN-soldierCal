@@ -5,6 +5,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import MainScreen from './screens/mainScreen';
 import ClockScreen from './screens/clockScreen';
+import NoticeScreen from './screens/noticeScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -23,6 +24,10 @@ export default function App() {
 						headerTitle: 'Sodier Calculation',
 						headerShown: true,
 					}}
+				/>
+				<Drawer.Screen
+					name="edit"
+					component={NoticeScreen}
 				/>
 			</Drawer.Navigator>
 		</NavigationContainer>

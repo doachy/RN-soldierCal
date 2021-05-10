@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, StatusBar, SafeAreaView, ScrollView, Button } from 'react-native';
 import PropTypes from 'prop-types';
-import ClockContaioner from './clockContainer';
+import ClockContainer from './clockContainer';
 import ProgressBar from './progressBar';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -106,7 +106,7 @@ export default class Scenery extends React.Component {
 							<Text style={styles.title}>{sceneryOption[condition].title}</Text>
 							<Text style={styles.subtitle}>{sceneryOption[condition].subtitle}</Text>
 						</View>
-						<ClockContaioner hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
+						<ClockContainer hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
 						<View style={styles.textbox}>
 							<Button title="push" onPress={() => this.handleClick()}></Button>
 							<Text style={{ marginTop: 20, color: 'white' }}>
