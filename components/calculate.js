@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import Scenery from './scenery';
+import PropTypes from 'prop-types';
+
 
 class Calculate extends React.Component {
 	state = {
@@ -24,8 +26,8 @@ class Calculate extends React.Component {
 	intervalId2;
 
 	componentDidMount() {
-		const finalDay = new Date('2021-10-01');
-		const startDay = new Date('2020-06-01');
+		const finalDay = new Date(this.props.final);
+		const startDay = new Date(this.props.start);
 
 		this.intervalId = setInterval(() => {
 			this.countDayFN(finalDay, startDay);
@@ -156,5 +158,14 @@ class Calculate extends React.Component {
 		);
 	}
 }
+
+Calculate.propTypes = {
+	start: PropTypes.string.isRequired,
+	final: PropTypes.string.isRequired,
+};
+Calculate.defaultProps = {
+	start: '2020-06-01',
+	final: '2021-09-28',
+};
 
 export default Calculate;

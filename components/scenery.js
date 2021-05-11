@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import ClockContainer from './clockContainer';
 import ProgressBar from './progressBar';
 import { LinearGradient } from 'expo-linear-gradient';
+import Input from '../components/input';
+
 
 export default class Scenery extends React.Component {
 	state = {
@@ -109,6 +111,7 @@ export default class Scenery extends React.Component {
 						<ClockContainer hours={clockTimeHours} mins={clockTimeMins} secs={clockTimeSecs} />
 						<View style={styles.textbox}>
 							<Button title="push" onPress={() => this.handleClick()}></Button>
+							<Input/>
 							<Text style={{ marginTop: 20, color: 'white' }}>
 								clockTime={clockTime1}
 							</Text>

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { TextInput, StyleSheet, View, Text, Alert, Button } from 'react-native';
-import Calculate from '../components/calculate';
-
-
 
 //https://www.npmjs.com/package/react-datepicker  -datepicker to use date input!!    4
 //https://reactdatepicker.com/#example-custom-day-class-name  - gu
@@ -14,19 +11,12 @@ import Calculate from '../components/calculate';
 //https://github.com/xgfe/react-native-datepicker   1
 export default class Input extends Component {
 	state = {
-		start: '11',
-		inputStart: '',
-		final: '11',
-		inputFinal: '',
+		text: '',
+		inputText: '',
 	};
 
 	submitBtn = () => {
-		this.setState({ start: this.state.inputStart });
-		this.setState({ final: this.state.inputFinal });
-		
-		const { start , final } = this.state;
-		
-		return <Calculate start={start} final={final}/>;
+		this.setState({ text: this.state.inputText });
 	};
 
 	render() {
@@ -37,21 +27,15 @@ export default class Input extends Component {
 					<TextInput
 						style={styles.textInput}
 						onChangeText={(text) => {
-							this.setState({ inputStart: text });
+							this.setState({ inputText: text });
 						}}
-						placeholder="입대일"
-					/>
-					<TextInput
-						style={styles.textInput}
-						onChangeText={(text) => {
-							this.setState({ inputFinal: text });
-						}}
-						placeholder="전역일"
+						placeholder="아무거나 입력해주세요."
 					/>
 					<Button title="제출" onPress={this.submitBtn} />
 				</View>
-					<Text style={styles.showText}>{this.state.start}</Text>
-					<Text style={styles.showText}>{this.state.final}</Text>
+				<View style={styles.card}>
+					<Text style={styles.showText}>{this.state.text}</Text>
+				</View>
 			</View>
 		);
 	}
