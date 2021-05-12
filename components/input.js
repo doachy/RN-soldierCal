@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TextInput, StyleSheet, View, Text, Alert, Button } from 'react-native';
 import Calculate from '../components/calculate';
+import ClockScreen from '../screens/clockScreen';
 
 
 
@@ -23,10 +24,10 @@ export default class Input extends Component {
 	submitBtn = () => {
 		this.setState({ start: this.state.inputStart });
 		this.setState({ final: this.state.inputFinal });
-		
-		const { start , final } = this.state;
-		
-		return <Calculate start={start} final={final}/>;
+				
+		return (
+			<ClockScreen start={this.state.start} final={this.state.final}/>
+		);
 	};
 
 	render() {

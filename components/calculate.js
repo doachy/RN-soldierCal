@@ -3,7 +3,6 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import Scenery from './scenery';
 import PropTypes from 'prop-types';
 
-
 class Calculate extends React.Component {
 	state = {
 		clockTimeHours: '0',
@@ -24,6 +23,7 @@ class Calculate extends React.Component {
 
 	intervalId;
 	intervalId2;
+
 
 	componentDidMount() {
 		const finalDay = new Date(this.props.final);
@@ -159,10 +159,7 @@ class Calculate extends React.Component {
 	}
 }
 
-Calculate.propTypes = {
-	start: PropTypes.string.isRequired,
-	final: PropTypes.string.isRequired,
-};
+
 Calculate.defaultProps = {
 	start: '2020-06-01',
 	final: '2021-09-28',
