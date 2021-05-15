@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 class Calculate extends React.Component {
 	state = {
+		starty: '2020-06-01',
+		finaly: '2021-10-01',
 		clockTimeHours: '0',
 		clockTimeMins: '0',
 		clockTimeSecs: '0',
@@ -26,8 +28,8 @@ class Calculate extends React.Component {
 
 
 	componentDidMount() {
-		const finalDay = new Date(this.props.final);
-		const startDay = new Date(this.props.start);
+		const finalDay = new Date(this.state.finaly);
+		const startDay = new Date(this.state.starty);
 
 		this.intervalId = setInterval(() => {
 			this.countDayFN(finalDay, startDay);
