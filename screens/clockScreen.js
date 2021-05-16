@@ -13,23 +13,23 @@ export default function ClockScreen({ navigation }) {
 	const conditions = ['EarlyMorning', 'Sunrise', 'Morning', 'Afternoon', 'Sunset', 'Midnight'];
 	const [num, setNum] = useState(0);
 	const [start, setStart] = useState('2020-06-01');
-	const [final, setFinal] = useState('2021-10-01');
+	const [final, setFinal] = useState('2021-09-24');
 	const [taskItems, setTaskItems] = useState({
-		timeNow: '0', //0
-		timeGoal: '0', //1
-		clockTimeHours: '0', //2
-		clockTimeMins: '0', //3
-		clockTimeSecs: '0', //4
-		clockTime1: '0', //5
-		days: '0', //6
-		hours: '0', //7
-		mins: '0', //8
-		secs: '0', //9
-		timeNow: '0', //10
-		timeGoal: '0', //11
-		totalDid: '0', //12
-		totalDay: '0', //13
-		perDay: '0',
+		timeNow: '', //0
+		timeGoal: '', //1
+		clockTimeHours: '', //2
+		clockTimeMins: '', //3
+		clockTimeSecs: '', //4
+		clockTime1: '', //5
+		days: '', //6
+		hours: '', //7
+		mins: '', //8
+		secs: '', //9
+		timeNow: '', //10
+		timeGoal: '', //11
+		totalDid: '', //12
+		totalDay: '', //13
+		perDay: '',
 	});
 
 	const condition = conditions[num];
@@ -40,8 +40,8 @@ export default function ClockScreen({ navigation }) {
 
 		intervalId = setInterval(() => {
 			countDayFN(finalDay, startDay);
-		}, 4000);
-	});
+		}, 200);
+	}, []);
 
 	const sceneryOption = {
 		EarlyMorning: {
@@ -149,6 +149,14 @@ export default function ClockScreen({ navigation }) {
 			} //14
 		);
 	};
+	
+	const handleClick = () => {
+		if(num>4){
+			setNum(0)
+		} else {
+			setNum(num + 1)
+		}
+	}
 
 	return (
 		<View style={styles.container}>
@@ -169,13 +177,13 @@ export default function ClockScreen({ navigation }) {
 					</View>
 
 					<ClockContainer
-						hours={taskItems['hours']}
-						mins={taskItems['mins']}
-						secs={taskItems['secs']}
+						hours={taskItems['clockTimeHours']}
+						mins={taskItems['clockTimeMins']}
+						secs={taskItems['clockTimeSecs']}
 					/>
 
 					<View style={styles.textbox}>
-						<Button title="push" onPress={() => setNum(num + 1)}></Button>
+						<Button title="push" onPress={() => handleClick()}></Button>
 						<Text style={{ marginTop: 20, color: 'white' }}>
 							clockTime={taskItems['clockTime1']}
 						</Text>
