@@ -47,22 +47,26 @@ export default function ClockScreen({ navigation }) {
 	});
 	let finalDay = new Date(final);
 	let startDay = new Date(start);
+	let intervalId = null;
 	const condition = conditions[num];
 
 	useEffect(() => {
 		intervalId = setInterval(() => {
 			countDayFN(finalDay, startDay);
-		}, 100);
+		}, 300);
+		return () => clearInterval(intervalId);
 	}, []);
 
 	useEffect(() => {
-		if (start !== '2020-06-01') {
-			clearInterval(intervalId);
-			intervalId = setInterval(() => {
-				countDayFN(finalDay, startDay);
-			}, 4000);
-		}
-	}, [start]);
+		clearInterval(intervalId);
+		finalDay = new Date(final);
+		startDay = new Date(start);
+
+		intervalId = setInterval(() => {
+			countDayFN(finalDay, startDay);
+		}, 300);
+		return () => clearInterval(intervalId);
+	}, [start, final]);
 
 	const sceneryOption = {
 		EarlyMorning: {
@@ -183,8 +187,6 @@ export default function ClockScreen({ navigation }) {
 		Keyboard.dismiss();
 		setStart(prevstart);
 		setFinal(prevfinal);
-		finalDay = new Date(final);
-		startDay = new Date(start);
 	};
 
 	return (
