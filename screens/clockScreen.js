@@ -53,7 +53,7 @@ export default function ClockScreen({ navigation }) {
 	useEffect(() => {
 		intervalId = setInterval(() => {
 			countDayFN(finalDay, startDay);
-		}, 300);
+		}, 100);
 		return () => clearInterval(intervalId);
 	}, []);
 
@@ -64,7 +64,7 @@ export default function ClockScreen({ navigation }) {
 
 		intervalId = setInterval(() => {
 			countDayFN(finalDay, startDay);
-		}, 300);
+		}, 100);
 		return () => clearInterval(intervalId);
 	}, [start, final]);
 

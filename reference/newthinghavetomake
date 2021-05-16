@@ -51,12 +51,13 @@ night: 밤
 //스크린 심플하게 정리하고, 간결한 코드 만들기
 공통된 코드를 하나의 함수에 통일하고 다른 부분만 나누기,,
 
-1.clock -> newclock에서 바로 newclock으로 구동하도록 바꾸기
 2. local db 사용법 공부 후 데이터를 전달 받은 후 함수가 실행 될 수 있도록 만들기. (사용자화)
 
 
 //앞으로 해야될 것
 drawer 디자인
+사용자 입력 받는 창을 새로 구현 -> stack 기능이 다시 구현되어야 하지 않을까?
+input 위치 재구성.
 
 
 
@@ -78,3 +79,4 @@ progressbar circle 추가 및 function에 props 적용 후 매개변수 전달 (
 배경 ui 구상 아마도 weather에서 슨 gradient를 가져와서 쓰지 않을까 싶음 (05-02)
 배경을 gradient로 만들고 clock과 합침 (05-05)
 button을 누르면 background가 바뀌도록 기능 추가 (05-06)
+사용자 정보로 계산 다시 할 수 있는,input 기능 추가 (05-16)
