@@ -247,7 +247,10 @@ export default function ClockScreen({ navigation }) {
 
 				{/* Write a task */}
 				{/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
-				<KeyboardAvoidingView
+
+			</SafeAreaView>
+			
+							<KeyboardAvoidingView
 					behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
 					style={styles.writeTaskWrapper}
 				>
@@ -269,7 +272,6 @@ export default function ClockScreen({ navigation }) {
 						</View>
 					</TouchableOpacity>
 				</KeyboardAvoidingView>
-			</SafeAreaView>
 		</View>
 	);
 }
@@ -317,27 +319,27 @@ const styles = StyleSheet.create({
 		color: '#fff',
 	},
 	writeTaskWrapper: {
-		position: 'absolute',
-		bottom: 60,
+		bottom: 30,
 		width: '100%',
-		flexDirection: 'column',
 		justifyContent: 'space-around',
 		alignItems: 'center',
+		position: 'absolute',
+		flexDirection: 'row',
 	},
 	input: {
-		paddingVertical: 15,
-		paddingHorizontal: 15,
+		paddingVertical: 10,
+		paddingHorizontal: 10,
 		backgroundColor: '#FFF',
 		borderRadius: 60,
 		borderColor: '#C0C0C0',
 		borderWidth: 1,
-		width: 250,
+		width: 110,
 	},
 	addWrapper: {
-		width: 60,
-		height: 60,
+		width: 50,
+		height: 50,
 		backgroundColor: '#FFF',
-		borderRadius: 60,
+		borderRadius: 50,
 		justifyContent: 'center',
 		alignItems: 'center',
 		borderColor: '#C0C0C0',
