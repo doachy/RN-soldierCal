@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
 	},
 	writeTaskWrapper: {
 		bottom: 30,
-		width: '100%',
+		width: '80%',
 		justifyContent: 'space-around',
 		alignItems: 'center',
 		position: 'absolute',
