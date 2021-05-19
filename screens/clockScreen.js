@@ -241,6 +241,7 @@ export default function ClockScreen({ navigation }) {
 						<Text style={styles.text}>totalDay={taskItems['totalDay']}</Text>
 						<Text style={styles.text}>totalDid={taskItems['totalDid']}</Text>
 						<Text style={styles.text}>perDay={taskItems['perDay']}%</Text>
+						<Button title="notice" onPress={() => navigation.navigate('notice', { start, final })} />
 						<ProgressBar per={taskItems['perDay']} />
 					</View>
 				</ScrollView>
@@ -256,13 +257,11 @@ export default function ClockScreen({ navigation }) {
 				>
 					<TextInput
 						style={styles.input}
-						placeholder={'Write a task'}
 						value={prevstart}
 						onChangeText={(text) => setPrevstart(text)}
 					/>
 					<TextInput
 						style={styles.input}
-						placeholder={'Write a task'}
 						value={prevfinal}
 						onChangeText={(text) => setPrevfinal(text)}
 					/>
