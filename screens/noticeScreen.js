@@ -30,6 +30,7 @@ export default function NoticeScreen({ navigation, route }) {
 		setName(tempName);
 		setClasses(tempArmy);
 		setArmy(tempArmy);
+		navigation.navigate('clock');
 	};
 	
 	
@@ -54,7 +55,7 @@ export default function NoticeScreen({ navigation, route }) {
 			<Text></Text>
 			<Text></Text>
 			<Text></Text>
-			<Button color="white" title="설정 완료" onPress={() => navigation.navigate('clock')} />
+			<Button color="white" title="설정 완료" onPress={() => handleAddTask()} />
 			
 			<Text>name: {name}</Text>
 			<Text>classes: {classes}</Text>
