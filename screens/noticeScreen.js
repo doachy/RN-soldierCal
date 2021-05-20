@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { useName, useClasses, useArmy } from "../testContext";
 import {
 	View,
 	Text,
@@ -14,12 +15,36 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
+
+
 export default function NoticeScreen({ navigation, route }) {
+	const [name, setName] = useName();
+	const [classes, setClasses] = useClasses();
+	const [army, setArmy] = useArmy();
+	const [tempName, setTempName] = useState('이름');
+	const [tempClasses, setTempClasses] = useState('계급');
+	const [tempArmy, setTempArmy] = useState('군별');
+	
+	const handleAddTask = () => {
+		Keyboard.dismiss();
+		setName(tempName);
+		setClasses(tempArmy);
+		setArmy(tempArmy);
+	};
+	
+	
 	return (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 			<LinearGradient colors={['#000428', '#004e92', '#004e92']} style={styles.background} />
 			<Text style={styles.subtitle}>이름</Text>
-			<TextInput label="이름" style={styles.input} placeholder="김륜기"></TextInput>
+			<TextInput style={styles.input} value={tempName}
+						onChangeText={(text) => setTempName(text)}></TextInput>
+			<Text style={styles.subtitle}>계급</Text>
+			<TextInput style={styles.input} value={tempClasses}
+						onChangeText={(text) => setTempClasses(text)}></TextInput>
+			<Text style={styles.subtitle}>군별</Text>
+			<TextInput style={styles.input} value={tempArmy}
+						onChangeText={(text) => setTempArmy(text)}></TextInput>
 			<Text style={styles.subtitle}>입대일</Text>
 			<TextInput style={styles.input} value={route.params.start}></TextInput>
 			<Text style={styles.subtitle}>전역일</Text>
@@ -29,10 +54,17 @@ export default function NoticeScreen({ navigation, route }) {
 			<Text></Text>
 			<Text></Text>
 			<Text></Text>
-			<Button color='white' title="설정 완료" onPress={() => navigation.navigate('clock')} />
+			<Button color="white" title="설정 완료" onPress={() => navigation.navigate('clock')} />
+			
+			<Text>name: {name}</Text>
+			<Text>classes: {classes}</Text>
+			<Text>army: {army}</Text>
+			
 		</View>
 	);
 }
+
+//notice 스크린에 context.api 사용 먼저 해서 테스트 해보기.
 
 const styles = StyleSheet.create({
 	subtitle: {
