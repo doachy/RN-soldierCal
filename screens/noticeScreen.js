@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useName } from '../testContext';
 import {
 	View,
 	Text,
@@ -15,13 +14,9 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function NoticeScreen({ navigation, route }) {
-	const { name, setName } = useName();
-	const [tempName, setTempName] = useState('이름');
-
+export default function NoticeScreen({ navigation }) {
 	const handleAddTask = () => {
 		Keyboard.dismiss();
-		setName(tempName);
 		navigation.navigate('clock');
 	};
 
@@ -32,7 +27,7 @@ export default function NoticeScreen({ navigation, route }) {
 			<TextInput
 				style={styles.input}
 				value={tempName}
-				onChangeText={(text) => setTempName(text)}
+				onChangeText={(text) => setTempName(text)} //수정
 			></TextInput>
 			<Text style={styles.subtitle}>계급</Text>
 			<TextInput style={styles.input}></TextInput>
