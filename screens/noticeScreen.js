@@ -45,6 +45,7 @@ export default function NoticeScreen({ navigation }) {
 			<Text></Text>
 			<Text></Text>
 			<Text></Text>
+			<Text></Text>
 			<Button color="white" title="설정 완료" onPress={() => handleAddTask()} />
 		</View>
 	);
