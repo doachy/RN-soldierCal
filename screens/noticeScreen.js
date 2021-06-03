@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
 	View,
 	Text,
@@ -19,30 +19,25 @@ export default function NoticeScreen({ navigation }) {
 		Keyboard.dismiss();
 		navigation.navigate('clock');
 	};
+	const info = useContext(InfoContext);
 
 	return (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 			<LinearGradient colors={['#000428', '#004e92', '#004e92']} style={styles.background} />
 			<Text style={styles.subtitle}>이름</Text>
-			<TextInput
-				style={styles.input}
-				value={tempName}
-				onChangeText={(text) => setTempName(text)} //수정
-			></TextInput>
+			<TextInput style={styles.input} value={info.name}></TextInput>
 			<Text style={styles.subtitle}>계급</Text>
-			<TextInput style={styles.input}></TextInput>
+			<TextInput style={styles.input} value={info.class}></TextInput>
 			<Text style={styles.subtitle}>군별</Text>
-			<TextInput style={styles.input}></TextInput>
-			<Text style={styles.subtitle}>입대일</Text>
+			<TextInput style={styles.input} value={info.class}></TextInput>
+			<Text style={styles.subtitle}>입대일 - params</Text>
 			<TextInput style={styles.input} value={route.params.start}></TextInput>
-			<Text style={styles.subtitle}>전역일</Text>
-			<TextInput style={styles.input} value={route.params.final}></TextInput>
-			<Text></Text>
-			<Text></Text>
-			<Text></Text>
-			<Text></Text>
-			<Text></Text>
-			<Text></Text>
+			<Text style={styles.subtitle}>전역일 - params</Text>
+			<TextInput style={styles.input} value={route.params.final}></TextInput>{' '}
+			<Text style={styles.subtitle}>입대일 - context</Text>
+			<TextInput style={styles.input} value={info.start}></TextInput>
+			<Text style={styles.subtitle}>전역일 - context</Text>
+			<TextInput style={styles.input} value={info.final}></TextInput>
 			<Text></Text>
 			<Text></Text>
 			<Text></Text>
