@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Button, StyleSheet, Text, View, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 export default function MainScreen({ navigation }) {

@@ -13,6 +13,7 @@ import {
 	TextInput,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import {InfoContext} from '../infoContext';
 
 export default function NoticeScreen({ navigation }) {
 	const handleAddTask = () => {
@@ -30,10 +31,7 @@ export default function NoticeScreen({ navigation }) {
 			<TextInput style={styles.input} value={info.class}></TextInput>
 			<Text style={styles.subtitle}>군별</Text>
 			<TextInput style={styles.input} value={info.class}></TextInput>
-			<Text style={styles.subtitle}>입대일 - params</Text>
-			<TextInput style={styles.input} value={route.params.start}></TextInput>
-			<Text style={styles.subtitle}>전역일 - params</Text>
-			<TextInput style={styles.input} value={route.params.final}></TextInput>{' '}
+
 			<Text style={styles.subtitle}>입대일 - context</Text>
 			<TextInput style={styles.input} value={info.start}></TextInput>
 			<Text style={styles.subtitle}>전역일 - context</Text>
