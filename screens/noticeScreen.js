@@ -13,7 +13,7 @@ import {
 	TextInput,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import {InfoContext} from '../infoContext';
+import { InfoContext } from '../infoContext';
 
 export default function NoticeScreen({ navigation }) {
 	const handleAddTask = () => {
@@ -23,24 +23,26 @@ export default function NoticeScreen({ navigation }) {
 	const info = useContext(InfoContext);
 
 	return (
-		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-			<LinearGradient colors={['#000428', '#004e92', '#004e92']} style={styles.background} />
-			<Text style={styles.subtitle}>이름</Text>
-			<TextInput style={styles.input} value={info.name}></TextInput>
-			<Text style={styles.subtitle}>계급</Text>
-			<TextInput style={styles.input} value={info.class}></TextInput>
-			<Text style={styles.subtitle}>군별</Text>
-			<TextInput style={styles.input} value={info.class}></TextInput>
-
-			<Text style={styles.subtitle}>입대일 - context</Text>
-			<TextInput style={styles.input} value={info.start}></TextInput>
-			<Text style={styles.subtitle}>전역일 - context</Text>
-			<TextInput style={styles.input} value={info.final}></TextInput>
-			<Text></Text>
-			<Text></Text>
-			<Text></Text>
-			<Button color="white" title="설정 완료" onPress={() => handleAddTask()} />
-		</View>
+			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+				<LinearGradient
+					colors={['#000428', '#004e92', '#004e92']}
+					style={styles.background}
+				/>
+				<Text style={styles.subtitle}>이름</Text>
+				<TextInput style={styles.input} value={info.name}></TextInput>
+				<Text style={styles.subtitle}>계급</Text>
+				<TextInput style={styles.input} value={info.classes}></TextInput>
+				<Text style={styles.subtitle}>군별</Text>
+				<TextInput style={styles.input} value={info.army}></TextInput>
+				<Text style={styles.subtitle}>입대일 - context</Text>
+				<TextInput style={styles.input} value={info.start}></TextInput>
+				<Text style={styles.subtitle}>전역일 - context</Text>
+				<TextInput style={styles.input} value={info.final}></TextInput>
+				<Text></Text>
+				<Text></Text>
+				<Text></Text>
+				<Button color="white" title="설정 완료" onPress={() => handleAddTask()} />
+			</View>
 	);
 }
 
